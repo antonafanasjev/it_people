@@ -1,5 +1,7 @@
 # it_people
 
+Language: python 3.5 
+
 ## Usage
 
 ### Add new user
