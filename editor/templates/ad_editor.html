@@ -1,0 +1,65 @@
+{% extends "./_layout.html" %} 
+
+{% block body %}
+<style>
+  div button {width: 100%;}
+</style>
+
+<div class="container"> 
+  <form method="">
+    {% csrf_token %}
+
+    <div class="form-group col-md-8 col-md-offset-2">
+      <label for="title">Title:</label>
+      <input
+       class="form-control"
+       type="text"
+       name="title"
+       id="title"
+       value="{{ ad.title }}"
+     >
+    </div>
+
+    <div class="form-group col-md-8 col-md-offset-2">
+      <label for="content">Content:</label> 
+      <textarea
+       class="form-control"
+       id="content"
+       name="content"
+      >{{ ad.content }}</textarea>
+    </div>
+
+    {% if ad %}
+    <div class="col-md-2 col-md-offset-4">
+      <button class="btn btn-default" id="btn-del" type="button">Deleete</button> 
+    </div> 
+    <div class="col-md-2"> 
+      <button class="btn btn-success" id="btn-save" type="button">Save</button>
+    </div>
+    {% else %}
+    <div class="col-md-2 col-md-offset-5">
+      <button class="btn btn-success" id="btn-save" type="button">Create</button>
+    </div>
+    {% endif %}
+  </form>
+</div> <!-- .container -->
+
+<script>
+  $(function() {
+      $('#btn-save').click(function() {
+          $.ajax({
+               method: '{% if ad %}PATCH{% else %}POST{% endif %}',
+               data: $('form').serialize()
+          });
+          window.location = '/ads'
+      });
+
+      $('#btn-del').click(function() {
+         $.ajax({
+             method: 'DELETE' 
+         });
+         window.location = '/ads'
+      }); 
+  });
+</script>
+{% endblock %}

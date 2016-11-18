@@ -1,0 +1,56 @@
+html {
+  height: 100%; 
+  background-color: #69aaac;
+}
+
+html .container {
+  position: relative;
+
+  height: 100%;
+  width: 17.5vw;
+
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+html body form {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+
+          transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+
+html body form img {
+  width: 10.5vw; 
+  margin: 2.4vh 5vw;
+}
+
+label {
+  color: #fff;
+  margin: 0
+}
+
+html body form .form-group {
+  position: relative;
+
+  z-index: 1;  
+  width: 100%;
+  height: 44px;
+  margin-bottom: 20px;
+
+  box-sizing: border-box;
+  font-size: 16px
+}
+
+html body form button {
+  width: 100%; 
+  margin: 1.95vh 0;
+
+  text-transform: uppercase;
+  font-weight: 700;  
+  background-color: #9dcbdb;
+  color: #3f707e;
+}
+

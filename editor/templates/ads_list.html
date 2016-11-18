@@ -1,0 +1,35 @@
+{% extends "./_layout.html" %}
+
+{% block body %}
+<div class="container">
+  <!-- <h3>Ads lits</h3> -->
+  
+  <div class="col-md-8 col-md-offset-2">
+    <table class="table">
+      <caption>Ads list</caption>
+      <thead>
+        <td>ID</td>
+        <td>Title</td>
+        <td></td>
+      </thead>
+      
+      <tbody> 
+        {% for ad in ads %}
+        <tr>
+          <td>{{ ad.id }} </td>
+          <td>{{ ad.title }}</td>
+          <td>
+            <a href="/ad/{{ ad.id }}/edit">edit</a>
+            <a href="/ad/{{ ad.id }}/">view</a> 
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-2 col-md-offset-5">
+    <button class="btn btn-default" onclick="window.location='/ads/create'">New</button>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "./_layout.html" %}
+
+{% block deps %}
+<link rel="stylesheet" href="/static/login.css">
+{% endblock %}
+
+{% block body %}
+<form method="POST">
+  {% csrf_token %}
+
+  <img src="/static/logo.png">
+  
+  <div class="form-group">
+    <label for="username">Login</label>
+    <input class="form-control" type="text" name="username" id="username">
+  </div> <!-- .form-group -->
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input class="form-control" type="password" name="password" id="password">
+  </div> 
+
+  <button class="btn" type="submit">Log in</button>
+</form>
+{% endblock %}
