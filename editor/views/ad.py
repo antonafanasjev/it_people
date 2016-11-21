@@ -20,7 +20,7 @@ def ad_view(request, id):
 
     storage.increase_ad_views(id, request.user.id)
 
-    views_count = storage.get_ad_views(id)[str(request.user.id)]
+    views_count = len(storage.get_ad_views(id))
     
     return render(request, 'ad_view.html', context={
         'ad':          ad,
